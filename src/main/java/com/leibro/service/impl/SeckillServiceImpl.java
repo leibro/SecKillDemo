@@ -56,7 +56,7 @@ public class SeckillServiceImpl implements SeckillSerivce {
         if(nowTime.getTime() < startTime.getTime() || nowTime.getTime() > endTime.getTime())
             return new Exposer(false,seckillId,nowTime.getTime(),startTime.getTime(),endTime.getTime());
         //转化特定字符串的过程，不可逆
-        String md5 = null;
+        String md5 = getMD5(seckillId);
         return new Exposer(true,md5,seckillId);
     }
 
