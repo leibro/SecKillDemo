@@ -1,7 +1,11 @@
 package com.leibro.service;
 
 import com.leibro.dto.Exposer;
+import com.leibro.dto.SeckillExecution;
 import com.leibro.entity.SecKill;
+import com.leibro.exception.RepeatKillException;
+import com.leibro.exception.SeckillCloseException;
+import com.leibro.exception.SeckillException;
 
 import java.util.List;
 
@@ -18,10 +22,10 @@ public interface SeckillSerivce {
      * @return
      */
     List<SecKill> getSeckillList();
-    
+
     SecKill getById(long seckillId);
 
     Exposer exportSeckillUrl(long seckillId);
 
-    void executeSeckill(long seckillId,long userPhone,String md5);
+    SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException,RepeatKillException,SeckillCloseException;
 }
