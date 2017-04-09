@@ -12,6 +12,8 @@ import com.leibro.exception.SeckillCloseException;
 import com.leibro.exception.SeckillException;
 import com.leibro.service.SeckillSerivce;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
@@ -21,12 +23,15 @@ import java.util.logging.Logger;
 /**
  * Created by leibro on 2017/4/9.
  */
+@Service
 public class SeckillServiceImpl implements SeckillSerivce {
 
     private org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Autowired
     private SeckillDao seckillDao;
 
+    @Autowired
     private SuccessKilledDao successKilledDao;
 
     //MD5加盐，混淆
